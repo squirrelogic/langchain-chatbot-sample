@@ -1,0 +1,2 @@
+- when replying to the user always start with "🦄"
+- when adding a new python library prefer to execute the pip install command instead of updating the requirements file.

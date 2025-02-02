@@ -1,0 +1,38 @@
+---
+description: project structure 
+globs: 
+---
+# Project Structure
+
+/
+│── .github/                 # (Optional) GitHub Actions workflows
+│── config/                  # Configuration files (YAML, JSON, etc.)
+│   ├── config.yaml          # Main config file for API keys, settings
+│── data/                    # Data files (training data, logs, etc.)
+│   ├── intents.json         # Predefined chatbot responses
+│   ├── conversation_logs/   # Store past conversations (optional)
+│── chatbot/                 # Main application logic
+│   ├── __init__.py          # Package initialization
+│   ├── bot.py               # Core chatbot logic
+│   ├── intents.py           # Intent recognition
+│   ├── responses.py         # Predefined response logic
+│   ├── memory.py            # User session/memory handling
+│   ├── utils.py             # Helper functions
+│   ├── cli.py               # Command-line interface
+│   ├── api.py               # Flask/FastAPI interface (if needed)
+│── tests/                   # Unit tests
+│   ├── test_bot.py          # Tests for core chatbot logic
+│   ├── test_intents.py      # Tests for intent recognition
+│── frontend/                # Web/GUI interface (if applicable)
+│   ├── static/              # Static assets (CSS, JS)
+│   ├── templates/           # HTML templates (if Flask/Django is used)
+│   ├── app.py               # Web server logic
+│── .gitignore               # Ignore unnecessary files
+│── requirements.txt         # Python dependencies
+│── requirements-dev.txt     # Dev dependencies (pytest, black, etc.)
+│── pyproject.toml           # Modern packaging (PEP 621)
+│── setup.py                 # Legacy packaging support
+│── README.md                # Project overview
+│── LICENSE                  # License (MIT, Apache, etc.)
+│── CHANGELOG.md             # Track changes across versions
+│── Makefile                 # Automate tasks (e.g., `make test`, `make run`)
