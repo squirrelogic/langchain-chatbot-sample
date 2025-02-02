@@ -15,10 +15,17 @@ A sample project demonstrating how to create an intelligent chatbot using LangCh
 
 - Python 3.9+
 - Poetry (required)
+- Just command runner
 
 ## Installation
 
 ```bash
+# Install Just if you haven't already (macOS)
+brew install just
+
+# Or on Ubuntu/Debian
+# curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to ~/.local/bin
+
 # Install Poetry if you haven't already
 curl -sSL https://install.python-poetry.org | python3 -
 
@@ -27,26 +34,38 @@ git clone https://github.com/yourusername/langchain-chatbot-sample.git
 cd langchain-chatbot-sample
 
 # Install dependencies (including development dependencies)
-make install-dev
+just install-dev
 
 # Or install only production dependencies
-make install
+just install
 ```
 
 ## Development
 
 ```bash
+# List all available commands
+just
+
 # Run tests
-make test
+just test
 
 # Run linting
-make lint
+just lint
 
 # Format code
-make format
+just format
 
 # Clean up temporary files
-make clean
+just clean
+
+# Update dependencies
+just update
+
+# Show outdated packages
+just outdated
+
+# Activate virtual environment
+just venv
 ```
 
 ## Usage

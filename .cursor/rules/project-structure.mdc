@@ -1,5 +1,5 @@
 ---
-description: project structure 
+description: project structure
 globs: 
 ---
 # Project Structure
@@ -28,11 +28,8 @@ globs:
 │   ├── templates/           # HTML templates (if Flask/Django is used)
 │   ├── app.py               # Web server logic
 │── .gitignore               # Ignore unnecessary files
-│── requirements.txt         # Python dependencies
-│── requirements-dev.txt     # Dev dependencies (pytest, black, etc.)
 │── pyproject.toml           # Modern packaging (PEP 621)
-│── setup.py                 # Legacy packaging support
 │── README.md                # Project overview
 │── LICENSE                  # License (MIT, Apache, etc.)
 │── CHANGELOG.md             # Track changes across versions
-│── Makefile                 # Automate tasks (e.g., `make test`, `make run`)
+│── justfile                 # Automate tasks (e.g., `just test`, `ust run`)
