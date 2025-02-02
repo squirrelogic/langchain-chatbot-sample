@@ -1,22 +1,22 @@
 .PHONY: install install-dev test lint format clean
 
 install:
-	pip install -r requirements.txt
+	poetry install --no-dev
 
 install-dev:
-	pip install -r requirements-dev.txt
+	poetry install
 
 test:
-	pytest tests/ -v --cov=chatbot
+	poetry run pytest tests/ -v --cov=chatbot
 
 lint:
-	ruff check .
-	black --check .
-	mypy chatbot/
+	poetry run ruff check .
+	poetry run black --check .
+	poetry run mypy chatbot/
 
 format:
-	black .
-	ruff --fix .
+	poetry run black .
+	poetry run ruff --fix .
 
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} +
