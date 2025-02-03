@@ -1,14 +1,21 @@
-"""
-LangChain Chatbot Sample
-A sample project demonstrating how to create an intelligent chatbot using LangChain and LangGraph.
-"""
+"""Chatbot package."""
+
+from typing import Any, Dict, Awaitable
+
+from .config import get_config
+from .graph import build_runnable_graph
 
 __version__ = "0.1.0"
 
-from typing import Any, Dict, List, Optional
 
-# These will be implemented in separate files
-from .bot import ChatBot  # type: ignore
-from .config import load_config  # type: ignore
+def create_chatbot() -> Awaitable[Any]:
+    """Create a new chatbot instance.
 
-__all__ = ["ChatBot", "load_config"]
+    Returns:
+        A coroutine that when awaited returns a runnable chatbot chain.
+    """
+    config = get_config()
+    return build_runnable_graph(config)
+
+
+__all__ = ["create_chatbot"]

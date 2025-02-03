@@ -61,3 +61,8 @@ conversation_logs/
 # Config
 config/local.yaml
 .env.local
+
+# SQLite database files
+*.db
+*.sqlite
+*.sqlite3

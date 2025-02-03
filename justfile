@@ -59,4 +59,8 @@ outdated:
 
 # Create and activate a new virtual environment
 venv:
-    poetry shell
+    source venv/bin/activate
+
+# Run the chatbot CLI
+chat *args='':
+    poetry run chatbot {{args}}

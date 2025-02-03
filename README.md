@@ -10,12 +10,14 @@ A sample project demonstrating how to create an intelligent chatbot using LangCh
 - ⚡ Modern Python practices
 - 📝 Comprehensive documentation
 - 🧪 Full test coverage
+- 🛠️ Built-in tools (calculator, weather info)
 
 ## Prerequisites
 
 - Python 3.9+
 - Poetry (required)
 - Just command runner
+- OpenAI API key
 
 ## Installation
 
@@ -33,12 +35,32 @@ curl -sSL https://install.python-poetry.org | python3 -
 git clone https://github.com/yourusername/langchain-chatbot-sample.git
 cd langchain-chatbot-sample
 
+# Set up environment variables
+cp .env.example .env
+# Edit .env and add your OpenAI API key
+
 # Install dependencies (including development dependencies)
 just install-dev
 
 # Or install only production dependencies
 just install
 ```
+
+## Configuration
+
+The chatbot requires an OpenAI API key to function. You can get one from [OpenAI's platform](https://platform.openai.com/api-keys).
+
+1. Copy the example environment file:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Edit `.env` and add your OpenAI API key:
+   ```bash
+   OPENAI_API_KEY=your-api-key-here
+   ```
+
+3. (Optional) Configure the model and other settings in `.env` or `config/config.yaml`
 
 ## Development
 
@@ -74,7 +96,16 @@ just venv
 from chatbot import ChatBot
 
 bot = ChatBot()
+
+# Basic conversation
 response = bot.chat("Hello, how are you?")
+print(response)
+
+# Using tools
+response = bot.chat("What's 123 * 456?")
+print(response)
+
+response = bot.chat("What's the weather in London?")
 print(response)
 ```
 
@@ -84,6 +115,10 @@ print(response)
 /
 ├── config/                  # Configuration files
 ├── chatbot/                # Main application logic
+│   ├── __init__.py        # Package initialization
+│   ├── bot.py            # Core chatbot implementation
+│   ├── graph.py          # LangGraph implementation
+│   └── tools.py          # Tool definitions
 ├── tests/                  # Unit tests
 └── ...
 ```
